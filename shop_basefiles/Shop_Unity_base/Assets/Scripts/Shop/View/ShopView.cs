@@ -42,17 +42,16 @@ namespace View
 
 			player = new Player(0);
 
-			RepopulateItemIconView(); //we need an Event system instead of this
-			InitializeButtons();
+			AddAllItems();
+			InitializeBuySellButtons();
 		}
 
 		//------------------------------------------------------------------------------------------------------------------------
 		//                                                  RepopulateItems()
 		//------------------------------------------------------------------------------------------------------------------------        
 		//clears the icon gridview and repopulates it with new icons (updates the visible icons)
-		
-		//TODO: make eventsystem
-		private void RepopulateItemIconView()
+
+		private void AddAllItems()
 		{
 			ClearIconView();
 			PopulateItemIconView();
@@ -77,16 +76,6 @@ namespace View
 		private void ClearIconView()
 		{
 			itemLayoutGroup.transform.DestroyChildren();
-
-//			Transform[] allIcons = itemLayoutGroup.transform.GetComponentsInChildren<Transform>();
-//			
-//			foreach (Transform child in allIcons)
-//			{
-//				if (child != itemLayoutGroup.transform)
-//				{
-//					Destroy(child.gameObject);
-//				}
-//			}
 		}
 
 		//------------------------------------------------------------------------------------------------------------------------
@@ -112,8 +101,9 @@ namespace View
 			itemButton.onClick.AddListener(
 				delegate
 				{
+					EventManager.Instance.RaiseEvent(new SelectedItemEvent());
 					shopController.SelectItem(item);
-					RepopulateItemIconView(); //we need an Event system instead of this
+					itemContainer.SetSelected(true);
 				}
 			);
 		}
@@ -122,13 +112,12 @@ namespace View
 		//                                                  InitializeButtons()
 		//------------------------------------------------------------------------------------------------------------------------        
 		//This method adds a listener to the 'Buy' and 'Sell' button. They are forwarded to the controller to the shop.
-		private void InitializeButtons()
+		private void InitializeBuySellButtons()
 		{
 			buyButton.onClick.AddListener(
 				delegate
 				{
 					ShopController.Buy(player, shopModel.GetSelectedItem(), 1);
-					RepopulateItemIconView(); //we need an Event system instead of this
 				}
 			);
 
@@ -136,7 +125,6 @@ namespace View
 				delegate
 				{
 					ShopController.Sell(player, shopModel.GetSelectedItem(), 1);
-					RepopulateItemIconView(); //we need an Event system instead of this
 				}
 			);
 		}

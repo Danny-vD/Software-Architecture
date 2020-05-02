@@ -40,8 +40,9 @@ namespace Model
 
 		private void AddListeners()
 		{
-			EventManager.Instance.AddListener<BuyItemEvent>(OnBuyItem);
-			EventManager.Instance.AddListener<SellItemEvent>(OnSellItem);
+			// maxValue - 1 to allow another class to be called first, if necessary. While ensuring that we'd be the first in all other cases
+			EventManager.Instance.AddListener<BuyItemEvent>(OnBuyItem, int.MaxValue - 1);
+			EventManager.Instance.AddListener<SellItemEvent>(OnSellItem, int.MaxValue - 1);
 		}
 
 		private void RemoveListeners()
@@ -186,13 +187,13 @@ namespace Model
 		//                                                  Buy()
 		//------------------------------------------------------------------------------------------------------------------------        
 		//not fully implemented yet
-		private void Buy(IBuyer buyer, AbstractItem item, uint amountToBuy = 1)
+		private bool Buy(IBuyer buyer, AbstractItem item, uint amountToBuy = 1)
 		{
 			if (item == null)
 			{
 				EventManager.Instance.RaiseEvent(new AddMessageEvent("The Item you are trying to sell is null."));
 				EventManager.Instance.RaiseEvent(new TransactionFailedEvent(buyer));
-				return;
+				return false;
 			}
 
 			//NOTE: to check whether the buyer (seller) actually had enough of that item,
@@ -200,29 +201,32 @@ namespace Model
 			buyer.RemoveItem(item, amountToBuy);
 			inventory.IncreaseAmountOfItem(item, amountToBuy);
 			EventManager.Instance.RaiseEvent(new TransactionSucceededEvent(buyer, item, amountToBuy));
+
+			return true;
 		}
 
 		//------------------------------------------------------------------------------------------------------------------------
 		//                                                  Sell()
 		//------------------------------------------------------------------------------------------------------------------------        
 		//not fully implemented yet
-		private void Sell(IBuyer buyer, AbstractItem item, uint amountToSell = 1)
+		private bool Sell(IBuyer buyer, AbstractItem item, uint amountToSell = 1)
 		{
 			if (item == null)
 			{
 				EventManager.Instance.RaiseEvent(new AddMessageEvent("The Item you are trying to buy is null."));
 				EventManager.Instance.RaiseEvent(new TransactionFailedEvent(buyer));
-				return;
+				return false;
 			}
 
 			if (inventory.DecreaseAmountOfItem(item, amountToSell))
 			{
 				buyer.AddItem(item.Clone(), amountToSell);
 				EventManager.Instance.RaiseEvent(new TransactionSucceededEvent(buyer, item, amountToSell));
-				return;
+				return true;
 			}
 
 			EventManager.Instance.RaiseEvent(new TransactionFailedEvent(buyer));
+			return false;
 		}
 
 		//------------------------------------------------------------------------------------------------------------------------
@@ -230,12 +234,18 @@ namespace Model
 		//------------------------------------------------------------------------------------------------------------------------
 		private void OnBuyItem(BuyItemEvent buyItemEvent)
 		{
-			Sell(buyItemEvent.Buyer, buyItemEvent.Item, buyItemEvent.Amount);
+			if (!Sell(buyItemEvent.Buyer, buyItemEvent.Item, buyItemEvent.Amount))
+			{
+				buyItemEvent.Consume();
+			}
 		}
 
 		private void OnSellItem(SellItemEvent sellItemEvent)
 		{
-			Buy(sellItemEvent.Buyer, sellItemEvent.Item, sellItemEvent.Amount);
+			if (!Buy(sellItemEvent.Buyer, sellItemEvent.Item, sellItemEvent.Amount))
+			{
+				sellItemEvent.Consume();
+			}
 		}
 	}
 }

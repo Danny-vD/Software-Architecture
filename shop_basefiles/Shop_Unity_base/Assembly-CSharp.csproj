@@ -58,6 +58,12 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Enums\ItemEnhancement.cs" />
      <Compile Include="Assets\Scripts\Enums\ItemType.cs" />
+     <Compile Include="Assets\Scripts\Events\AddMessageEvent.cs" />
+     <Compile Include="Assets\Scripts\Events\BuyItemEvent.cs" />
+     <Compile Include="Assets\Scripts\Events\SelectedItemEvent.cs" />
+     <Compile Include="Assets\Scripts\Events\SellItemEvent.cs" />
+     <Compile Include="Assets\Scripts\Events\TransactionFailedEvent.cs" />
+     <Compile Include="Assets\Scripts\Events\TransactionSucceededEvent.cs" />
      <Compile Include="Assets\Scripts\Interfaces\Factory\IConcreteItemFactory.cs" />
      <Compile Include="Assets\Scripts\Interfaces\IEnhanceable.cs" />
      <Compile Include="Assets\Scripts\Interfaces\IShopItemDrawer.cs" />
@@ -65,11 +71,6 @@
      <Compile Include="Assets\Scripts\Interfaces\Player\IBuyer.cs" />
      <Compile Include="Assets\Scripts\PlayerScripts\Player.cs" />
      <Compile Include="Assets\Scripts\Shop\Controller\ShopController.cs" />
-     <Compile Include="Assets\Scripts\Shop\Events\AddMessageEvent.cs" />
-     <Compile Include="Assets\Scripts\Shop\Events\BuyItemEvent.cs" />
-     <Compile Include="Assets\Scripts\Shop\Events\SellItemEvent.cs" />
-     <Compile Include="Assets\Scripts\Shop\Events\TransactionFailedEvent.cs" />
-     <Compile Include="Assets\Scripts\Shop\Events\TransactionSucceededEvent.cs" />
      <Compile Include="Assets\Scripts\Shop\Model\Inventory\ShopInventory.cs" />
      <Compile Include="Assets\Scripts\Shop\Model\Inventory\ShopItemData.cs" />
      <Compile Include="Assets\Scripts\Shop\Model\Item\AbstractItem.cs" />

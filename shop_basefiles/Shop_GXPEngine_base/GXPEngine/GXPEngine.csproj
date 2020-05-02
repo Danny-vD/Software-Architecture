@@ -44,19 +44,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\Shop_Unity_base\Assets\Scripts\Shop\Events\AddMessageEvent.cs">
+    <Compile Include="..\..\Shop_Unity_base\Assets\Scripts\Events\AddMessageEvent.cs">
       <Link>Events\AddMessageEvent.cs</Link>
     </Compile>
-    <Compile Include="..\..\Shop_Unity_base\Assets\Scripts\Shop\Events\BuyItemEvent.cs">
+    <Compile Include="..\..\Shop_Unity_base\Assets\Scripts\Events\BuyItemEvent.cs">
       <Link>Events\BuyItemEvent.cs</Link>
     </Compile>
-    <Compile Include="..\..\Shop_Unity_base\Assets\Scripts\Shop\Events\SellItemEvent.cs">
+    <Compile Include="..\..\Shop_Unity_base\Assets\Scripts\Events\SellItemEvent.cs">
       <Link>Events\SellItemEvent.cs</Link>
     </Compile>
-    <Compile Include="..\..\Shop_Unity_base\Assets\Scripts\Shop\Events\TransactionFailedEvent.cs">
+    <Compile Include="..\..\Shop_Unity_base\Assets\Scripts\Events\TransactionFailedEvent.cs">
       <Link>Events\TransactionFailedEvent.cs</Link>
     </Compile>
-    <Compile Include="..\..\Shop_Unity_base\Assets\Scripts\Shop\Events\TransactionSucceededEvent.cs">
+    <Compile Include="..\..\Shop_Unity_base\Assets\Scripts\Events\TransactionSucceededEvent.cs">
       <Link>Events\TransactionSucceededEvent.cs</Link>
     </Compile>
     <Compile Include="..\..\Shop_Unity_base\Assets\Scripts\Shop\Model\Inventory\ShopInventory.cs">
