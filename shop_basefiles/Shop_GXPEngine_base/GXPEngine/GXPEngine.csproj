@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\NUnit.3.12.0\build\NUnit.props" Condition="Exists('..\packages\NUnit.3.12.0\build\NUnit.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B5126D4C-7FE0-4552-BC8C-E68D529C22B2}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>
+    </RootNamespace>
+    <AssemblyName>GXPEngine</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>False</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <ConsolePause>False</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>none</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <ConsolePause>False</ConsolePause>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Reference Include="nunit.framework, Version=3.12.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.3.12.0\lib\net45\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\Shop_Unity_base\Assets\Scripts\Shop\Events\AddMessageEvent.cs">
+      <Link>Events\AddMessageEvent.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Shop_Unity_base\Assets\Scripts\Shop\Events\BuyItemEvent.cs">
+      <Link>Events\BuyItemEvent.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Shop_Unity_base\Assets\Scripts\Shop\Events\SellItemEvent.cs">
+      <Link>Events\SellItemEvent.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Shop_Unity_base\Assets\Scripts\Shop\Events\TransactionFailedEvent.cs">
+      <Link>Events\TransactionFailedEvent.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Shop_Unity_base\Assets\Scripts\Shop\Events\TransactionSucceededEvent.cs">
+      <Link>Events\TransactionSucceededEvent.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Shop_Unity_base\Assets\Scripts\Shop\Model\Inventory\ShopInventory.cs">
+      <Link>Shop\Model\Inventory\ShopInventory.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Shop_Unity_base\Assets\Scripts\Shop\Model\Inventory\ShopItemData.cs">
+      <Link>Shop\Model\Inventory\ShopItemData.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Shop_Unity_base\Assets\Scripts\Shop\Model\Item\EnhancedItem.cs">
+      <Link>Shop\Model\Item\EnhancedItem.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Shop_Unity_base\Assets\Scripts\Shop\Model\Item\AbstractItem.cs">
+      <Link>Shop\Model\Item\AbstractItem.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Shop_Unity_base\Assets\Scripts\Shop\Model\Item\ItemFactory\AbstractItemFactory.cs">
+      <Link>Shop\Model\Item\ItemFactory\AbstractItemFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Shop_Unity_base\Assets\Scripts\Shop\Model\Item\ItemFactory\AxeFactory.cs">
+      <Link>Shop\Model\Item\ItemFactory\AxeFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Shop_Unity_base\Assets\Scripts\Shop\Model\Item\ItemFactory\FlameThrowerFactory.cs">
+      <Link>Shop\Model\Item\ItemFactory\FlameThrowerFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Shop_Unity_base\Assets\Scripts\Shop\Model\Item\ItemFactory\MaceFactory.cs">
+      <Link>Shop\Model\Item\ItemFactory\MaceFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Shop_Unity_base\Assets\Scripts\Shop\Model\Item\ItemFactory\SwordFactory.cs">
+      <Link>Shop\Model\Item\ItemFactory\SwordFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Shop_Unity_base\Assets\Scripts\Shop\Model\Item\NormalItem.cs">
+      <Link>Shop\Model\Item\NormalItem.cs</Link>
+    </Compile>
+    <Compile Include="Enums\ItemEnhancement.cs" />
+    <Compile Include="Enums\ItemType.cs" />
+    <Compile Include="Interfaces\Factory\IConcreteItemFactory.cs" />
+    <Compile Include="Interfaces\IEnhanceable.cs" />
+    <Compile Include="Interfaces\IShopItemDrawer.cs" />
+    <Compile Include="Interfaces\IShopView.cs" />
+    <Compile Include="Interfaces\Player\IBuyer.cs" />
+    <Compile Include="MyGame.cs" />
+    <Compile Include="GXPEngine\Canvas.cs" />
+    <Compile Include="GXPEngine\Game.cs" />
+    <Compile Include="GXPEngine\GameObject.cs" />
+    <Compile Include="GXPEngine\Sound.cs" />
+    <Compile Include="GXPEngine\SoundChannel.cs" />
+    <Compile Include="GXPEngine\Sprite.cs" />
+    <Compile Include="GXPEngine\Core\BlendMode.cs" />
+    <Compile Include="GXPEngine\Core\BoxCollider.cs" />
+    <Compile Include="GXPEngine\Core\Collider.cs" />
+    <Compile Include="GXPEngine\Core\GLContext.cs" />
+    <Compile Include="GXPEngine\Core\Rectangle.cs" />
+    <Compile Include="GXPEngine\Core\Texture2D.cs" />
+    <Compile Include="GXPEngine\Core\Transformable.cs" />
+    <Compile Include="GXPEngine\Core\Vector2.cs" />
+    <Compile Include="GXPEngine\FMOD\FMOD.cs" />
+    <Compile Include="GXPEngine\Managers\CollisionManager.cs" />
+    <Compile Include="GXPEngine\Managers\UpdateManager.cs" />
+    <Compile Include="GXPEngine\OpenGL\GL.cs" />
+    <Compile Include="GXPEngine\Pivot.cs" />
+    <Compile Include="GXPEngine\AnimationSprite.cs" />
+    <Compile Include="GXPEngine\Mathf.cs" />
+    <Compile Include="GXPEngine\Utils\Input.cs" />
+    <Compile Include="GXPEngine\Utils\Key.cs" />
+    <Compile Include="GXPEngine\Utils\MouseHandler.cs" />
+    <Compile Include="GXPEngine\Utils\Time.cs" />
+    <Compile Include="GXPEngine\Utils\Utils.cs" />
+    <Compile Include="GXPEngine\AddOns\Camera.cs" />
+    <Compile Include="GXPEngine\AddOns\HierarchyManager.cs" />
+    <Compile Include="GXPEngine\AddOns\Settings.cs" />
+    <Compile Include="GXPEngine\AddOns\TiledMapParser.cs" />
+    <Compile Include="GXPEngine\AddOns\Window.cs" />
+    <Compile Include="GXPEngine\AddOns\EasyDraw.cs" />
+    <Compile Include="GXPEngine\Core\Collision.cs" />
+    <Compile Include="PlayerScripts\Player.cs" />
+    <Compile Include="Shop\States\ShopBrowseState.cs" />
+    <Compile Include="Shop\View\ShopItemDrawer.cs" />
+    <Compile Include="Shop\View\ShopMessageView.cs" />
+    <Compile Include="Shop\View\ShopView.cs" />
+    <Compile Include="Shop\View\Helper.cs" />
+    <Compile Include="..\..\Shop_Unity_base\Assets\Scripts\Shop\Controller\ShopController.cs">
+      <Link>Shop\Controller\ShopController.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Shop_Unity_base\Assets\Scripts\Shop\Model\ShopModel.cs">
+      <Link>Shop\Model\ShopModel.cs</Link>
+    </Compile>
+    <Compile Include="Tests\ShopModelTests.cs" />
+    <Compile Include="Utility\InputManager.cs" />
+    <Compile Include="Utility\MessageHandler.cs" />
+    <Compile Include="VDFramework\SharedClasses\EventSystem\EventHandler.cs" />
+    <Compile Include="VDFramework\SharedClasses\EventSystem\EventManager.cs" />
+    <Compile Include="VDFramework\SharedClasses\EventSystem\ParameterlessEventHandler.cs" />
+    <Compile Include="VDFramework\SharedClasses\EventSystem\VDEvent.cs" />
+    <Compile Include="VDFramework\SharedClasses\Exceptions\SingletonViolationException.cs" />
+    <Compile Include="VDFramework\SharedClasses\Extensions\EnumerableExtenstions.cs" />
+    <Compile Include="VDFramework\SharedClasses\Extensions\EnumExtenstions.cs" />
+    <Compile Include="VDFramework\SharedClasses\Extensions\ListExtensions.cs" />
+    <Compile Include="VDFramework\SharedClasses\Extensions\RandomItem.cs" />
+    <Compile Include="VDFramework\SharedClasses\Extensions\StringExtenstions.cs" />
+    <Compile Include="VDFramework\SharedClasses\Utility\RandomUtil.cs" />
+    <Compile Include="VDFramework\SharedClasses\Utility\StringVariableWriter.cs" />
+    <Compile Include="VDFramework\StandardFramework\Singleton\Singleton.cs" />
+    <Compile Include="VDFramework\StandardFramework\Singleton\SingletonInstanceCreator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="VDFramework\SharedClasses\Interfaces\.gitkeep" />
+    <Content Include="VDFramework\SharedClasses\Utility\.gitkeep" />
+    <Content Include="VDFramework\StandardFramework\Utility\.gitkeep" />
+  </ItemGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\NUnit.3.12.0\build\NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit.3.12.0\build\NUnit.props'))" />
+  </Target>
+</Project>

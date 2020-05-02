@@ -1,0 +1,7 @@
+*.idea/
+*.vs/
+*Library/
+*Temp/
+*obj/
+*Logs/
+shop_basefiles/Shop_GXPEngine_base/docs/
