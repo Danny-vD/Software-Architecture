@@ -18,7 +18,7 @@ namespace Model
 	public class ShopModel
 	{
 		private static readonly Random random = new Random();
-		
+
 		private readonly ShopInventory inventory = new ShopInventory(); //items in the store
 		private readonly AbstractItemFactory itemFactory = new AbstractItemFactory();
 
@@ -30,7 +30,9 @@ namespace Model
 		public ShopModel()
 		{
 			AddListeners();
-			PopulateInventory(32U, 5); //currently, it has 16 of every item
+			
+			//currently, it has a maximum of 32 items with 5 of every item (duplicates are added to the existing item)
+			PopulateInventory(32U, 5);
 		}
 
 		public void Destroy()
@@ -54,23 +56,6 @@ namespace Model
 
 			EventManager.Instance.RemoveListener<BuyItemEvent>(OnBuyItem);
 			EventManager.Instance.RemoveListener<SellItemEvent>(OnSellItem);
-		}
-
-		//------------------------------------------------------------------------------------------------------------------------
-		//                                                  PopulateInventory()
-		//------------------------------------------------------------------------------------------------------------------------        
-		private void PopulateInventory(uint itemCount, uint amountPerItem)
-		{
-			ItemType[] itemTypes = default(ItemType).GetValues().RandomSort().ToArray();
-
-			for (int index = 0; index < itemCount; index++)
-			{
-				AbstractItem item = RandomUtil.RandomBool()
-					? itemFactory.CreateItem(itemTypes[index % itemTypes.Length])
-					: itemFactory.CreateEnhancedItem(itemTypes[index % itemTypes.Length], random.Next(1, 3));
-
-				inventory.IncreaseAmountOfItem(item, amountPerItem);
-			}
 		}
 
 		//------------------------------------------------------------------------------------------------------------------------
@@ -175,18 +160,33 @@ namespace Model
 		}
 
 		//------------------------------------------------------------------------------------------------------------------------
-		//                                                  Buy()
+		//                                                  GetPrice()
 		//------------------------------------------------------------------------------------------------------------------------        
-		//not fully implemented yet
 		public float GetPrice(AbstractItem item)
 		{
 			return inventory.GetPriceOfItem(item);
+		}
+		
+		//------------------------------------------------------------------------------------------------------------------------
+		//                                                  PopulateInventory()
+		//------------------------------------------------------------------------------------------------------------------------        
+		private void PopulateInventory(uint itemCount, uint amountPerItem)
+		{
+			ItemType[] itemTypes = default(ItemType).GetValues().RandomSort().ToArray();
+
+			for (int index = 0; index < itemCount; index++)
+			{
+				AbstractItem item = RandomUtil.RandomBool()
+					? itemFactory.CreateItem(itemTypes[index % itemTypes.Length])
+					: itemFactory.CreateEnhancedItem(itemTypes[index % itemTypes.Length], random.Next(1, 3));
+
+				inventory.IncreaseAmountOfItem(item, amountPerItem);
+			}
 		}
 
 		//------------------------------------------------------------------------------------------------------------------------
 		//                                                  Buy()
 		//------------------------------------------------------------------------------------------------------------------------        
-		//not fully implemented yet
 		private bool Buy(IBuyer buyer, AbstractItem item, uint amountToBuy = 1)
 		{
 			if (item == null)
@@ -208,7 +208,6 @@ namespace Model
 		//------------------------------------------------------------------------------------------------------------------------
 		//                                                  Sell()
 		//------------------------------------------------------------------------------------------------------------------------        
-		//not fully implemented yet
 		private bool Sell(IBuyer buyer, AbstractItem item, uint amountToSell = 1)
 		{
 			if (item == null)
@@ -228,7 +227,7 @@ namespace Model
 			EventManager.Instance.RaiseEvent(new TransactionFailedEvent(buyer));
 			return false;
 		}
-
+		
 		//------------------------------------------------------------------------------------------------------------------------
 		//                                                  EventHandlers
 		//------------------------------------------------------------------------------------------------------------------------
