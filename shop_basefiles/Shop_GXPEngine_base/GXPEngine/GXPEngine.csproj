@@ -89,6 +89,48 @@
     <Compile Include="..\..\Shop_Unity_base\Assets\Scripts\Shop\Model\Item\NormalItem.cs">
       <Link>Shop\Model\Item\NormalItem.cs</Link>
     </Compile>
+    <Compile Include="..\..\Shop_Unity_base\Assets\Scripts\Utility\MessageHandler.cs">
+      <Link>Utility\MessageHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Shop_Unity_base\Assets\VDFramework\SharedClasses\EventSystem\EventHandler.cs">
+      <Link>VDFramework\SharedClasses\EventSystem\EventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Shop_Unity_base\Assets\VDFramework\SharedClasses\EventSystem\EventManager.cs">
+      <Link>VDFramework\SharedClasses\EventSystem\EventManager.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Shop_Unity_base\Assets\VDFramework\SharedClasses\EventSystem\ParameterlessEventHandler.cs">
+      <Link>VDFramework\SharedClasses\EventSystem\ParameterlessEventHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Shop_Unity_base\Assets\VDFramework\SharedClasses\EventSystem\VDEvent.cs">
+      <Link>VDFramework\SharedClasses\EventSystem\VDEvent.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Shop_Unity_base\Assets\VDFramework\SharedClasses\Exceptions\SingletonViolationException.cs">
+      <Link>VDFramework\SharedClasses\Exceptions\SingletonViolationException.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Shop_Unity_base\Assets\VDFramework\SharedClasses\Extensions\EnumerableExtenstions.cs">
+      <Link>VDFramework\SharedClasses\Extensions\EnumerableExtenstions.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Shop_Unity_base\Assets\VDFramework\SharedClasses\Extensions\EnumExtenstions.cs">
+      <Link>VDFramework\SharedClasses\Extensions\EnumExtenstions.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Shop_Unity_base\Assets\VDFramework\SharedClasses\Extensions\Int32Extentions.cs">
+      <Link>VDFramework\SharedClasses\Extensions\Int32Extentions.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Shop_Unity_base\Assets\VDFramework\SharedClasses\Extensions\ListExtensions.cs">
+      <Link>VDFramework\SharedClasses\Extensions\ListExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Shop_Unity_base\Assets\VDFramework\SharedClasses\Extensions\RandomItem.cs">
+      <Link>VDFramework\SharedClasses\Extensions\RandomItem.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Shop_Unity_base\Assets\VDFramework\SharedClasses\Extensions\StringExtenstions.cs">
+      <Link>VDFramework\SharedClasses\Extensions\StringExtenstions.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Shop_Unity_base\Assets\VDFramework\SharedClasses\Utility\RandomUtil.cs">
+      <Link>VDFramework\SharedClasses\Utility\RandomUtil.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Shop_Unity_base\Assets\VDFramework\SharedClasses\Utility\StringVariableWriter.cs">
+      <Link>VDFramework\SharedClasses\Utility\StringVariableWriter.cs</Link>
+    </Compile>
     <Compile Include="Enums\ItemEnhancement.cs" />
     <Compile Include="Enums\ItemType.cs" />
     <Compile Include="Interfaces\Factory\IConcreteItemFactory.cs" />
@@ -144,19 +186,6 @@
     </Compile>
     <Compile Include="Tests\ShopModelTests.cs" />
     <Compile Include="Utility\InputManager.cs" />
-    <Compile Include="Utility\MessageHandler.cs" />
-    <Compile Include="VDFramework\SharedClasses\EventSystem\EventHandler.cs" />
-    <Compile Include="VDFramework\SharedClasses\EventSystem\EventManager.cs" />
-    <Compile Include="VDFramework\SharedClasses\EventSystem\ParameterlessEventHandler.cs" />
-    <Compile Include="VDFramework\SharedClasses\EventSystem\VDEvent.cs" />
-    <Compile Include="VDFramework\SharedClasses\Exceptions\SingletonViolationException.cs" />
-    <Compile Include="VDFramework\SharedClasses\Extensions\EnumerableExtenstions.cs" />
-    <Compile Include="VDFramework\SharedClasses\Extensions\EnumExtenstions.cs" />
-    <Compile Include="VDFramework\SharedClasses\Extensions\ListExtensions.cs" />
-    <Compile Include="VDFramework\SharedClasses\Extensions\RandomItem.cs" />
-    <Compile Include="VDFramework\SharedClasses\Extensions\StringExtenstions.cs" />
-    <Compile Include="VDFramework\SharedClasses\Utility\RandomUtil.cs" />
-    <Compile Include="VDFramework\SharedClasses\Utility\StringVariableWriter.cs" />
     <Compile Include="VDFramework\StandardFramework\Singleton\Singleton.cs" />
     <Compile Include="VDFramework\StandardFramework\Singleton\SingletonInstanceCreator.cs" />
   </ItemGroup>
@@ -164,8 +193,57 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="VDFramework\SharedClasses\Interfaces\.gitkeep" />
-    <Content Include="VDFramework\SharedClasses\Utility\.gitkeep" />
+    <Content Include="..\..\Shop_Unity_base\Assets\VDFramework\SharedClasses\EventSystem.meta">
+      <Link>VDFramework\SharedClasses\EventSystem.meta</Link>
+    </Content>
+    <Content Include="..\..\Shop_Unity_base\Assets\VDFramework\SharedClasses\EventSystem\EventHandler.cs.meta">
+      <Link>VDFramework\SharedClasses\EventSystem\EventHandler.cs.meta</Link>
+    </Content>
+    <Content Include="..\..\Shop_Unity_base\Assets\VDFramework\SharedClasses\EventSystem\EventManager.cs.meta">
+      <Link>VDFramework\SharedClasses\EventSystem\EventManager.cs.meta</Link>
+    </Content>
+    <Content Include="..\..\Shop_Unity_base\Assets\VDFramework\SharedClasses\EventSystem\ParameterlessEventHandler.cs.meta">
+      <Link>VDFramework\SharedClasses\EventSystem\ParameterlessEventHandler.cs.meta</Link>
+    </Content>
+    <Content Include="..\..\Shop_Unity_base\Assets\VDFramework\SharedClasses\EventSystem\VDEvent.cs.meta">
+      <Link>VDFramework\SharedClasses\EventSystem\VDEvent.cs.meta</Link>
+    </Content>
+    <Content Include="..\..\Shop_Unity_base\Assets\VDFramework\SharedClasses\Exceptions.meta">
+      <Link>VDFramework\SharedClasses\Exceptions.meta</Link>
+    </Content>
+    <Content Include="..\..\Shop_Unity_base\Assets\VDFramework\SharedClasses\Exceptions\SingletonViolationException.cs.meta">
+      <Link>VDFramework\SharedClasses\Exceptions\SingletonViolationException.cs.meta</Link>
+    </Content>
+    <Content Include="..\..\Shop_Unity_base\Assets\VDFramework\SharedClasses\Extensions.meta">
+      <Link>VDFramework\SharedClasses\Extensions.meta</Link>
+    </Content>
+    <Content Include="..\..\Shop_Unity_base\Assets\VDFramework\SharedClasses\Extensions\EnumerableExtenstions.cs.meta">
+      <Link>VDFramework\SharedClasses\Extensions\EnumerableExtenstions.cs.meta</Link>
+    </Content>
+    <Content Include="..\..\Shop_Unity_base\Assets\VDFramework\SharedClasses\Extensions\EnumExtenstions.cs.meta">
+      <Link>VDFramework\SharedClasses\Extensions\EnumExtenstions.cs.meta</Link>
+    </Content>
+    <Content Include="..\..\Shop_Unity_base\Assets\VDFramework\SharedClasses\Extensions\Int32Extentions.cs.meta">
+      <Link>VDFramework\SharedClasses\Extensions\Int32Extentions.cs.meta</Link>
+    </Content>
+    <Content Include="..\..\Shop_Unity_base\Assets\VDFramework\SharedClasses\Extensions\ListExtensions.cs.meta">
+      <Link>VDFramework\SharedClasses\Extensions\ListExtensions.cs.meta</Link>
+    </Content>
+    <Content Include="..\..\Shop_Unity_base\Assets\VDFramework\SharedClasses\Extensions\RandomItem.cs.meta">
+      <Link>VDFramework\SharedClasses\Extensions\RandomItem.cs.meta</Link>
+    </Content>
+    <Content Include="..\..\Shop_Unity_base\Assets\VDFramework\SharedClasses\Extensions\StringExtenstions.cs.meta">
+      <Link>VDFramework\SharedClasses\Extensions\StringExtenstions.cs.meta</Link>
+    </Content>
+    <Content Include="..\..\Shop_Unity_base\Assets\VDFramework\SharedClasses\Utility.meta">
+      <Link>VDFramework\SharedClasses\Utility.meta</Link>
+    </Content>
+    <Content Include="..\..\Shop_Unity_base\Assets\VDFramework\SharedClasses\Utility\RandomUtil.cs.meta">
+      <Link>VDFramework\SharedClasses\Utility\RandomUtil.cs.meta</Link>
+    </Content>
+    <Content Include="..\..\Shop_Unity_base\Assets\VDFramework\SharedClasses\Utility\StringVariableWriter.cs.meta">
+      <Link>VDFramework\SharedClasses\Utility\StringVariableWriter.cs.meta</Link>
+    </Content>
     <Content Include="VDFramework\StandardFramework\Utility\.gitkeep" />
   </ItemGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

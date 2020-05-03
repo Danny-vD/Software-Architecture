@@ -196,7 +196,7 @@ namespace Model
 				return false;
 			}
 
-			//NOTE: to check whether the buyer (seller) actually had enough of that item,
+			//NOTE: to check whether the buyer (seller) actually had enough of that item...
 			// we could listen to the "SellItemEvent" in the inventory first and "Consume()" the event if it's not valid
 			buyer.RemoveItem(item, amountToBuy);
 			inventory.IncreaseAmountOfItem(item, amountToBuy);

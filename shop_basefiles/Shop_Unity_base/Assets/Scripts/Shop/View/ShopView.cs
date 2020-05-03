@@ -40,7 +40,7 @@ namespace View
 			this.shopModel = shopModel;
 			this.shopController = shopController;
 
-			player = new Player(0);
+			player = new Player(0); // unity version only has one player
 
 			AddAllItems();
 			InitializeBuySellButtons();
