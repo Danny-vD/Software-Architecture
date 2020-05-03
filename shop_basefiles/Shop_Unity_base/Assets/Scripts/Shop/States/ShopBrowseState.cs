@@ -31,21 +31,19 @@ namespace States
 		//------------------------------------------------------------------------------------------------------------------------
 		private void Initialize()
 		{
-			//get view from children
+			// Get view from children
 			shopView = GetComponentInChildren<ShopView>();
 			Debug.Assert(shopView != null);
 
-			//Set up the model and controller
+			// Set up the model and controller
 			shopModel = new ShopModel();
 			shopController = new ShopController(shopModel, null); //controller does not need a shopview in the unity version
 
-			//get mesageview from children
+			// Get mesageview from children
 			shopMessageView = GetComponentInChildren<ShopMessageView>();
 			Debug.Assert(shopMessageView != null);
 
-			//setup model and controller
-
-			//link them
+			// Link them
 			shopView.Initialize(shopModel, shopController); //view1
 			shopMessageView.Initialize(); //view2
 		}

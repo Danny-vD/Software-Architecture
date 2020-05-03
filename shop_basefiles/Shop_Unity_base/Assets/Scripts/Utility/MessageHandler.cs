@@ -46,7 +46,7 @@ namespace Utility
 		public void Destroy()
 		{
 			if (!EventManager.IsInitialized)
-			{
+			{ 
 				return;
 			}
 
