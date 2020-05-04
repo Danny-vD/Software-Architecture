@@ -1,11 +1,8 @@
-﻿using System;
-using System.Linq;
-using Utility;
+﻿using Utility;
 
 namespace View
 {
 	using UnityEngine;
-	using Model;
 
 	public class ShopMessageView : MonoBehaviour
 	{
